@@ -6,6 +6,7 @@
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.1",
         "guzzlehttp/guzzle": "^6.3",
+        "stof/doctrine-extensions-bundle": "^1.3",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.0",
@@ -13,7 +14,8 @@
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
-        "api-platform/schema-generator": "^2.1"
+        "api-platform/schema-generator": "^2.1",
+        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "preferred-install": {
@@ -54,8 +56,8 @@
     },
     "extra": {
         "symfony": {
-            "id": "",
-            "allow-contrib": false
+            "id": "01CBHFQHSZFB8CEPA43HXSD1W1",
+            "allow-contrib": true
         }
     }
 }
