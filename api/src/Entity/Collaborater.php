@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * Class Remark.
  *
@@ -129,17 +128,11 @@ class Collaborater
         $this->email = $email;
     }
 
-    /**
-     * @return Remark
-     */
     public function getRemark(): Remark
     {
         return $this->remark;
     }
 
-    /**
-     * @param Remark $remark
-     */
     public function setRemark(Remark $remark): void
     {
         $this->remark = $remark;

@@ -17,7 +17,7 @@ class GeneralAssemblyNormalizer implements NormalizerInterface, NormalizerAwareI
     {
         $this->ready = false;
         $data = $this->normalizer->normalize($object, $format, $context);
-        $data['name'] = "Assemblée générale du ".$data['date'];
+        $data['name'] = 'Assemblée générale du '.$data['date'];
         $this->ready = true;
 
         return $data;

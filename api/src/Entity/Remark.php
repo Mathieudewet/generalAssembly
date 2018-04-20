@@ -153,7 +153,7 @@ class Remark
     {
         return $this->decision;
     }
-    
+
     public function setDecision(Decision $decision): void
     {
         $this->decision = $decision;
@@ -172,14 +172,13 @@ class Remark
     public function getDetractors(): array
     {
         return $this->detractors->getValues() ?? [];
-
     }
 
     public function setDetractors(array $detractors): void
     {
         $this->detractors = $detractors;
     }
-    
+
     public function addDetractor(Collaborater $detractor): void
     {
         if (!$this->detractors->contains($detractor)) {
@@ -208,12 +207,10 @@ class Remark
         }
     }
 
-
     public function getApprovings(): array
     {
         return $this->approvings->getValues() ?? [];
     }
-
 
     public function setApprovings(array $approvings): void
     {
