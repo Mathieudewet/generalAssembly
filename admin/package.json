@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@api-platform/admin": "^0.4.0",
+    "aor-rich-text-input": "^1.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },

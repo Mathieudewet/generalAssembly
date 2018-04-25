@@ -29,7 +29,7 @@ services:
     volumes:
       - ./api/public:/srv/api/public:ro
     ports:
-      - "8080:80"
+      - "8080:87"
 
   cache-proxy:
     image: ${CONTAINER_REGISTRY_BASE}/varnish
@@ -44,7 +44,7 @@ services:
     volumes:
       - ./api/docker/varnish/conf:/etc/varnish:ro
     ports:
-      - "8081:80"
+      - "8081:87"
 
   db:
     # In production, you may want to use a managed database service
@@ -75,7 +75,7 @@ services:
       - ./client:/usr/src/client:rw,cached
       - /usr/src/client/node_modules
     ports:
-      - "80:3000"
+      - "87:3000"
 
   admin:
     # Use a static website hosting service in production

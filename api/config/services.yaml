@@ -11,6 +11,8 @@ services:
         public: false       # Allows optimizing the container by removing unused services; this also means
                             # fetching services directly from the container via $container->get() won't work.
                             # The best practice is to be explicit about your dependencies anyway.
+        #bind:
+         #   $userPasswordSalt: '%env(USER_PASSWORD_SALT)%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -18,11 +20,22 @@ services:
         resource: '../src/*'
         exclude: '../src/{Entity,Migrations,Tests}'
 
-    # controllers are imported separately to make sure services can be injected
-    # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller'
+    App\Action\:
+        public: true
+        resource: '../src/Action'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+#    App\Command\:
+#        public: true
+#        resource: '../src/Command'
+#        tags: ['console.command']
+
+    App\EntityListener\:
+        resource: '../src/EntityListener'
+        tags: ['doctrine.orm.entity_listener']
+
+    App\Serializer\:
+        resource: '../src/Serializer'
+        autoconfigure: false
+        tags:
+            - { name: serializer.normalizer, priority: 9 }

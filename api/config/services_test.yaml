@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        public: true
+
+    # If you need to access services in a test, create an alias
+    # and then fetch that alias from the container. As a convention,
+    # aliases are prefixed with test. For example:
+    #
+    # test.App\Service\MyService: '@App\Service\MyService'
+
+# Hack for Behat: allow to inject some private services
+# Waiting for Behat/Symfony2Extension to support autowiring (https://goo.gl/z8BPpG)
+    test.property_info:
+        parent: property_info
+        public: true
+    test.api_platform.metadata.resource.metadata_factory.annotation:
+        parent: api_platform.metadata.resource.metadata_factory.annotation
+        public: true
+    test.api_platform.iri_converter:
+        parent: api_platform.iri_converter
+        public: true
+    test.annotation_reader:
+            parent: annotation_reader
+            public: true

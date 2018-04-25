@@ -1,0 +1,6 @@
+{
+    "require-dev": {
+        "symfony/browser-kit": "^4.0",
+        "symfony/css-selector": "^4.0"
+    }
+}
