@@ -33,7 +33,7 @@ class Decision
     /**
      * @var null|string
      *
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      * @Groups({"decision_read", "decision_write"})
      */
     private $description;

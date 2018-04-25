@@ -1,2 +1,7 @@
 /docker-compose.override.yaml
 /docker-compose.override.yml
+.php_cs.cache
+api/bin/phpunit
+general-assembly-admin/
+node_modules/
+yarn-error.log
