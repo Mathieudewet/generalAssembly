@@ -2,12 +2,12 @@
 
 namespace App\Serializer;
 
-use App\Entity\Decision;
+use App\Entity\Remark;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class DecisionNormalizer implements NormalizerInterface, NormalizerAwareInterface
+class RemarkNormalizer implements NormalizerInterface, NormalizerAwareInterface
 {
     use NormalizerAwareTrait;
 
@@ -17,10 +17,7 @@ class DecisionNormalizer implements NormalizerInterface, NormalizerAwareInterfac
     {
         $this->ready = false;
         $data = $this->normalizer->normalize($object, $format, $context);
-        $data['generalAssembly'] = $data['generalAssembly']['@id'];
-        foreach ($data['remarks'] as &$remark) {
-            $remark = $remark['@id'];
-        }
+        $data['pointOfView'] = [$object::neutral_point_of_view, $object::for_point_of_view, $object::against_point_of_view];
         $this->ready = true;
 
         return $data;
@@ -28,6 +25,6 @@ class DecisionNormalizer implements NormalizerInterface, NormalizerAwareInterfac
 
     public function supportsNormalization($data, $format = null): bool
     {
-        return $data instanceof Decision && $this->ready;
+        return $data instanceof Remark && $this->ready;
     }
 }

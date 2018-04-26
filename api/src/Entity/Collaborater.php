@@ -128,7 +128,7 @@ class Collaborater
         $this->email = $email;
     }
 
-    public function getRemark(): Remark
+    public function getRemark(): ?Remark
     {
         return $this->remark;
     }

@@ -171,7 +171,10 @@ class Remark
 
     public function getDetractors(): array
     {
-        return $this->detractors->getValues() ?? [];
+        if(isset($this->detractors)) {
+            return $this->detractors->getValues();
+        }
+         return [];
     }
 
     public function setDetractors(array $detractors): void
@@ -209,7 +212,10 @@ class Remark
 
     public function getApprovings(): array
     {
-        return $this->approvings->getValues() ?? [];
+        if (isset($this->approvings)) {
+            return $this->approvings->getValues();
+        }
+        return [];
     }
 
     public function setApprovings(array $approvings): void
@@ -247,7 +253,10 @@ class Remark
 
     public function getCollaboraters(): array
     {
-        return $this->collaboraters;
+        if (isset($this->collaboraters)) {
+            return $this->collaboraters->toArray();
+        }
+        return [];
     }
 
     public function setCollaboraters(): void
